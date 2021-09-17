@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Delete SMS with Ozeki SMS Gateway</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <form action="/" method="POST" class="form-group" style="width: 40%; margin-top: 10vh; margin-left: 30%;
+        display: flex; flex-direction: column; height: 30vh; justify-content: space-evenly;">
+            <b>ID:</b>
+            <input class="form-control" type="text"
+                   name="message_id" placeholder="ff44c9fb-1494-4457-8f59-5915dc16500d">
+            <b>Folder:</b>
+            <select class="form-control" name="folder">
+                <option value="inbox">Inbox</option>
+                <option value="outbox">Outbox</option>
+                <option value="sent">Sent</option>
+                <option value="notsent">Not sent</option>
+                <option value="deleted">Deleted</option>
+            </select>
+            <input class="btn btn-primary"
+                   style="font-weight: 600;"
+                   type="submit"
+                   name="submit"
+                   value="DELETE">
+        </form>
+        <ul style="width: 40%; margin-left: 30%; height: 40vh; overflow-y: scroll;"
+            class="list-group card">
+            <li class="list-group-item card"><b>Logs:</b></li>
+            {% if logs %}
+                {% for log in logs %}
+                    <li class="list-group-item">{{ log }}</li>
+                {% endfor %}
+            {% endif  %}
+        </ul>
+    </body>
+</html>
