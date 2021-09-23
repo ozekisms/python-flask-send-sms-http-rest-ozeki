@@ -1,3 +1,5 @@
+# This is what happens when the repository gets updated.
+
 from flask import Flask, render_template, request
 from ozekilibsrest import Configuration, Message, MessageApi
 app = Flask(__name__)
